@@ -14,21 +14,19 @@ def get_ocr_json(img):
     resultStr = ocr.ocr(img, cls=False).__str__()
 
     result = re.findall(r'\((.*?)\)', resultStr)
-
-    for line in result:
-        print(line)
     return result
 
 
 def get_text_json(text):
-    json_str = []
+    text_dict = {}
 
     for line in text:
-        line = line.replace(', ', ':')
-        json_str.append(line)
-
-    json_str = json_str.__str__().replace('"', '').replace('[', '{').replace(']', '}')
-    return json_str
+        line_rep = line.replace('\'', '')
+        index = line_rep.index(', ')
+        var_dict_before = line_rep[:index]
+        var_dict_after = line_rep[index + 2:]
+        text_dict[var_dict_before] = var_dict_after
+    return text_dict
 
 
 @app.post("/ocr")
