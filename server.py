@@ -31,8 +31,8 @@ def get_text_json(text):
 
 @app.post("/ocr")
 async def ocr_api(request):
-    # 获取文件流转bytes
+    # 通过文件流转bytes，获取到OCR内容
     result = get_ocr_json(request.files.get("img").body)
-
+    # 处理ocr内容为字典类型，以便json传出
     json_str = get_text_json(result)
     return json(json_str)
