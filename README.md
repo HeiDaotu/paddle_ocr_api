@@ -8,7 +8,4 @@
 
 首先使用 `pip install -r requirements.txt` 安装项目的依赖环境，然后在命令行输入 `sanic server.app` ，即可。
 
-## Docker运行
-
-1. 拉取Docker
 
