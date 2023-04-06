@@ -2,7 +2,7 @@
 
 >  这是一个OCR接口，里面内置了sanic框架和paddleocr框架，可以通过http直接请求接口，传图片File文件，然后返回识别的json信息。
 
-默认端口是 `8000` ，调用接口示例：`http://127.0.0.1:8000/ocr` 
+默认端口是 `8000` ，调用接口示例：`http://127.0.0.1:8000/ocr` ，请求 `post` 请求。
 
 ## 本地运行项目
 
@@ -22,13 +22,15 @@
 
 ![image-20230406110707799](https://fastly.jsdelivr.net/gh/HeiDaotu/img-bucket/img/202304061107692.png)
 
+## request请求
 
+表单传输 `File` 类型，传输名为 `img`。
 
-## 文件类型
+```bash
+curl -X POST -F 'img=@xxx.png' http://127.0.0.1:8000/ocr
+```
 
-`File` 类型。
-
-## 返回类型
+## response响应
 
 `json` 类型，`key:`识别名字，`value:`识别的可信度，越高越好。
 
