@@ -27,7 +27,7 @@
 表单传输 `File` 类型，传输名为 `img`。
 
 ```bash
-curl -X POST -F 'img=@xxx.png' http://127.0.0.1:8000/ocr
+curl -X POST -F 'img=@xxx.png' http://localhost:8000/ocr
 ```
 
 ## response响应
