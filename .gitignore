@@ -7,9 +7,8 @@ model
 output
 sample_img
 Data
-demo.py
-demo2.py
-demo3.py
+demo
+inference
 
 
 # C extensions
